@@ -119,28 +119,32 @@ nav{
     display: flex;
     flex-direction: column;
     gap:2em;
+    justify-content: center;
+    align-items: center;
     /* background-color: #219C90; */
 }
 .intro img{
     margin-top: 5em;
-    margin-left:1em;
+    /* margin-left:1em; */
     width:70px;
     height: 20px;
 }
 .intro p{
     font-size: large;
-    margin-left:1em;
+    /* margin-left:1em; */
     color:rgb(97, 91, 91);
+    text-align: center;
 }
 .intro h1{
-    margin-left:0.1em;
+    /* margin-left:0.1em; */
     font-size: 4rem;
-    color:#365E32
+    color:#365E32;
+    text-align: center;
 }
 .intro button{
     width:100px;
     height:60px;
-    margin-left:15em;
+    /* margin-left:10em; */
     border: none;
     background-color: #059212;
     color:white;
@@ -150,6 +154,44 @@ nav{
     background-color: #365E32;
     transition: .2s ease;
 }
+
+@media (max-width: 850px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+    .banner {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .banner img {
+        width: 100%;
+        height: 100%;
+    }
+    .intro {
+        width: 100%;
+        padding: 1em;
+    }
+    .intro img {
+        width: 50px;
+        height: auto;
+    }
+    .intro p {
+        font-size: medium;
+    }
+    .intro h1 {
+        font-size: 2rem;
+    }
+    .intro button {
+        width: 20%;
+        height: 40px;
+    }
+}
+
+
 .cards{
     width:100vw;
     height:30vh;
@@ -207,4 +249,28 @@ nav{
     grid-column-end: 3;
     display: flex;
     margin-left:8px;
+}
+
+@media(max-width:780px){
+    .cards{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .card{
+        width:50%;
+    }
+    .text1,.text2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.best-selling{
+    height:100vh;
+    width:100%;
+    border: 1px solid;
 }
