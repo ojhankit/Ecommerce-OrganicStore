@@ -60,38 +60,39 @@ const products = [
         price: "300.00"
     }
 ];
+
 const query = document.getElementById("query");
-        const btn = document.getElementById('btn');
-        const productContainer = document.querySelector(".products");
+const btn = document.getElementById('btn');
+const productContainer = document.querySelector(".products");
 
-        btn.addEventListener('click', function() {
-            let value = query.value;
-            let value_lower_case = value.toLowerCase();
-            let value_trimmed = value_lower_case.trim();
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts(products);
+});
 
-            let filteredProducts = products.filter(product => 
-                product.name.toLowerCase().includes(value_trimmed) ||
-                product.type.toLowerCase().includes(value_trimmed)
-            );
+btn.addEventListener('click', () => {
+    let value = query.value.trim().toLowerCase();
+    let filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(value) ||
+        product.type.toLowerCase().includes(value)
+    );
+    displayProducts(filteredProducts);
+});
 
-            displayProducts(filteredProducts);
-        });
-
-        function displayProducts(products) {
-            productContainer.innerHTML = "";
-            products.forEach(product => {
-                const productElement = document.createElement("div");
-                productElement.classList.add("item");
-                productElement.innerHTML = `
-                    <div class="img">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="desc">
-                        <p>${product.type}</p>
-                        <p><strong>${product.name}</strong></p>
-                        <i class="fa-solid fa-indian-rupee-sign"><span>${product.price}</span></i>
-                    </div>
-                `;
-                productContainer.appendChild(productElement);
-            });
-        }
+function displayProducts(products) {
+    productContainer.innerHTML = "";
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('item');
+        productElement.innerHTML = `
+            <div class="img">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="desc">
+                <p>${product.type}</p>
+                <p><strong>${product.name}</strong></p>
+                <i class="fa-solid fa-indian-rupee-sign"><span>${product.price}</span></i>
+            </div>
+        `;
+        productContainer.appendChild(productElement);
+    });
+}
